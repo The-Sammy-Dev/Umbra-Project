@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sword Swing 2_2.wav-caa7b82fbd8e67f729e853209adebcdb.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Swings and Whoosh/Sword Swing 2_2.wav"
+dest_files=[ "res://.import/Sword Swing 2_2.wav-caa7b82fbd8e67f729e853209adebcdb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

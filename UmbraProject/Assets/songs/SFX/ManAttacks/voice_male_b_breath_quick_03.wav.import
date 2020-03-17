@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/voice_male_b_breath_quick_03.wav-da44186feddbd1638c6ac14b6747136c.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/ManAttacks/voice_male_b_breath_quick_03.wav"
+dest_files=[ "res://.import/voice_male_b_breath_quick_03.wav-da44186feddbd1638c6ac14b6747136c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

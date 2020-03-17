@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Stab 7_2.wav-a72874148daf2380146dc5713234ac61.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Weapons/Stab 7_2.wav"
+dest_files=[ "res://.import/Stab 7_2.wav-a72874148daf2380146dc5713234ac61.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

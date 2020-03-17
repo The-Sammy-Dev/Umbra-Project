@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Realistic Punch 1_1.wav-8710133abfe03bf9198f75a099d76d56.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/PunchAndMelee/Realistic Punch 1_1.wav"
+dest_files=[ "res://.import/Realistic Punch 1_1.wav-8710133abfe03bf9198f75a099d76d56.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

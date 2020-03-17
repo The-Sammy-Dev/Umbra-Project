@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Weapon Draw Metal 12.wav-9b2c4feea2c5e083e99fcbe54e0ac88d.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Weapons/Weapon Draw Metal 12.wav"
+dest_files=[ "res://.import/Weapon Draw Metal 12.wav-9b2c4feea2c5e083e99fcbe54e0ac88d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

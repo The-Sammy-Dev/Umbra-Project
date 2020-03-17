@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bow Draw 3_5.wav-9d876cc52327b90e9a10a740e299ca2d.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Weapons/Bow Draw 3_5.wav"
+dest_files=[ "res://.import/Bow Draw 3_5.wav-9d876cc52327b90e9a10a740e299ca2d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

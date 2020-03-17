@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Whoosh 7_2.wav-e52f1c15e1b5bb7a7678700df37c9af1.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Swings and Whoosh/Whoosh 7_2.wav"
+dest_files=[ "res://.import/Whoosh 7_2.wav-e52f1c15e1b5bb7a7678700df37c9af1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Metal Weapon Hit Wood 3_5.wav-0ab52b0a0bd90ef2e15170a68ec6854a.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Weapons/Metal Weapon Hit Wood 3_5.wav"
+dest_files=[ "res://.import/Metal Weapon Hit Wood 3_5.wav-0ab52b0a0bd90ef2e15170a68ec6854a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

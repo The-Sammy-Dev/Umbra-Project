@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/melee sound.wav-34410d9a7da45d29740c8b5db23c5205.sample"
+
+[deps]
+
+source_file="res://Assets/songs/melee sound.wav"
+dest_files=[ "res://.import/melee sound.wav-34410d9a7da45d29740c8b5db23c5205.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

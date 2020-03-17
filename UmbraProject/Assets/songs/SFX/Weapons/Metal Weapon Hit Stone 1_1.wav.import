@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Metal Weapon Hit Stone 1_1.wav-cd0adc2ddf835f7ea314f1caace1bb2c.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Weapons/Metal Weapon Hit Stone 1_1.wav"
+dest_files=[ "res://.import/Metal Weapon Hit Stone 1_1.wav-cd0adc2ddf835f7ea314f1caace1bb2c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

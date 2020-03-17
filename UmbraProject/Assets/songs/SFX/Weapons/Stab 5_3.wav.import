@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Stab 5_3.wav-e8425d5c150c33af61086c02db7d377b.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Weapons/Stab 5_3.wav"
+dest_files=[ "res://.import/Stab 5_3.wav-e8425d5c150c33af61086c02db7d377b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

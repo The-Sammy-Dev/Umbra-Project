@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Dash Light Armor 2_05.wav-25634dd80ed1cd66f2cb1964e02d1887.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Swings and Whoosh/Dash Light Armor 2_05.wav"
+dest_files=[ "res://.import/Dash Light Armor 2_05.wav-25634dd80ed1cd66f2cb1964e02d1887.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

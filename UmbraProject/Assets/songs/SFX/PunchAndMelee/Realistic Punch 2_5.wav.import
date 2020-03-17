@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Realistic Punch 2_5.wav-d93d0c1c0fe09ed986bd172a82e16eae.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/PunchAndMelee/Realistic Punch 2_5.wav"
+dest_files=[ "res://.import/Realistic Punch 2_5.wav-d93d0c1c0fe09ed986bd172a82e16eae.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

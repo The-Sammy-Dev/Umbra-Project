@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bow Handle 3_3.wav-25f3a1b3077f01c568e030d7abc482ab.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Weapons/Bow Handle 3_3.wav"
+dest_files=[ "res://.import/Bow Handle 3_3.wav-25f3a1b3077f01c568e030d7abc482ab.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

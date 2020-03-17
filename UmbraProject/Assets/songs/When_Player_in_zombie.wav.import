@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/When_Player_in_zombie.wav-e8e0f3594f8c4772e56796e18e74d23a.sample"
+
+[deps]
+
+source_file="res://Assets/songs/When_Player_in_zombie.wav"
+dest_files=[ "res://.import/When_Player_in_zombie.wav-e8e0f3594f8c4772e56796e18e74d23a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Shield Wood 1_2.wav-68e6eda614cc41da1788a4d6889fb10c.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Shields/Shield Wood 1_2.wav"
+dest_files=[ "res://.import/Shield Wood 1_2.wav-68e6eda614cc41da1788a4d6889fb10c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

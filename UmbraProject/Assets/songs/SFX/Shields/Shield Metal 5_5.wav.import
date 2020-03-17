@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Shield Metal 5_5.wav-7a5b2ed0f61adab3ae9dfc76f3f62467.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Shields/Shield Metal 5_5.wav"
+dest_files=[ "res://.import/Shield Metal 5_5.wav-7a5b2ed0f61adab3ae9dfc76f3f62467.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

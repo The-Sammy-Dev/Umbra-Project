@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Arrow Fly 1_2.wav-0ea1ebe55aabe0576f76a000c2e1d944.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Weapons/Arrow Fly 1_2.wav"
+dest_files=[ "res://.import/Arrow Fly 1_2.wav-0ea1ebe55aabe0576f76a000c2e1d944.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,194 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Chapters/Begining_Chapter.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Zombie.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Tileset/tiles.tres" type="TileSet" id=3]
+[ext_resource path="res://Assets/freetileset/png/BG/3.png" type="Texture" id=4]
+[ext_resource path="res://Assets/freetileset/png/BG/2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/freetileset/png/BG/0.png" type="Texture" id=6]
+[ext_resource path="res://Assets/freetileset/png/BG/1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/freetileset/png/Object/Bush (1).png" type="Texture" id=8]
+[ext_resource path="res://Assets/freetileset/png/Object/Bush (4).png" type="Texture" id=9]
+[ext_resource path="res://Assets/freetileset/png/Object/Bush (3).png" type="Texture" id=10]
+[ext_resource path="res://Assets/freetileset/png/Object/Tree_2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/freetileset/png/Object/Tree_3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/songs/music2.wav" type="AudioStream" id=13]
+[ext_resource path="res://Scenes/Bee.tscn" type="PackedScene" id=15]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 226.807, 77.0731, 0, 0, 0, 0, -126.115, 80.3489 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2507.04, -161.725, 0, 0, 0, 0, 2216.96, -170.515 )
+}
+
+[sub_resource type="Curve2D" id=3]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 614.448, 76.6972, 0, 0, 0, 0, 252.266, 71.7863 )
+}
+
+[node name="BeginingChapter" type="Node2D"]
+position = Vector2( 493.321, 527.474 )
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="." groups=[
+"wall",
+]]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( -65542, 10, 0, -65541, 2, 0, -131051, 0, 0, -131050, 1, 0, -131049, 1, 0, -131048, 1, 0, -131047, 1, 0, -131046, 1, 0, -131045, 1, 0, -131044, 1, 0, -131043, 1, 0, -6, 4, 0, -5, 5, 0, -65519, 12, 0, -65518, 13, 0, -65517, 14, 0, -65515, 3, 0, -65514, 4, 0, -65513, 4, 0, -65512, 4, 0, -65511, 4, 0, -65507, 3, 0, 65530, 4, 0, 65531, 5, 0, 11, 0, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 2, 0, 21, 3, 0, 22, 4, 0, 23, 4, 0, 24, 4, 0, 25, 4, 0, 29, 3, 0, 131066, 4, 0, 131067, 9, 0, 131068, 10, 0, 131069, 1, 0, 131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 7, 0, 65548, 4, 0, 65549, 4, 0, 65550, 4, 0, 65551, 5, 0, 65557, 3, 0, 65558, 4, 0, 65559, 4, 0, 65560, 4, 0, 65561, 4, 0, 65565, 3, 0, 196602, 4, 0, 196603, 4, 0, 196604, 4, 0, 196605, 4, 0, 196606, 4, 0, 196607, 4, 0, 131072, 4, 0, 131073, 4, 0, 131074, 4, 0, 131075, 4, 0, 131076, 4, 0, 131077, 4, 0, 131078, 4, 0, 131079, 4, 0, 131080, 4, 0, 131081, 4, 0, 131082, 4, 0, 131083, 4, 0, 131084, 4, 0, 131085, 4, 0, 131086, 4, 0, 131087, 5, 0, 131093, 3, 0, 131094, 4, 0, 131095, 4, 0, 131096, 4, 0, 131097, 9, 0, 131098, 1, 0, 131099, 1, 0, 131100, 1, 0, 131101, 7, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="layer0" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1280, 960 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="0" type="Sprite" parent="ParallaxBackground/layer0"]
+position = Vector2( 639.784, 469.777 )
+texture = ExtResource( 6 )
+
+[node name="layer1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 1280, 960 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="1" type="Sprite" parent="ParallaxBackground/layer1"]
+position = Vector2( 638.961, 508.904 )
+texture = ExtResource( 7 )
+
+[node name="layer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.15, 1 )
+motion_mirroring = Vector2( 1280, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="2" type="Sprite" parent="ParallaxBackground/layer2"]
+position = Vector2( 638.961, 469.154 )
+texture = ExtResource( 5 )
+
+[node name="layer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 1280, 0 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="3" type="Sprite" parent="ParallaxBackground/layer3"]
+position = Vector2( 638.961, 315.154 )
+texture = ExtResource( 4 )
+
+[node name="objectslayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 1.2, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Tree_3" type="Sprite" parent="ParallaxBackground/objectslayer"]
+position = Vector2( 213.66, 477.541 )
+scale = Vector2( 1.3231, 1.3231 )
+texture = ExtResource( 12 )
+
+[node name="Tree_2" type="Sprite" parent="ParallaxBackground/objectslayer"]
+position = Vector2( 330.29, 510.152 )
+texture = ExtResource( 11 )
+
+[node name="Bush (3)" type="Sprite" parent="ParallaxBackground/objectslayer"]
+position = Vector2( 661.321, 625.151 )
+scale = Vector2( 1.43887, 1.43887 )
+texture = ExtResource( 10 )
+
+[node name="Bush (4)" type="Sprite" parent="ParallaxBackground/objectslayer"]
+position = Vector2( 948.277, 636.449 )
+texture = ExtResource( 9 )
+
+[node name="Bush (1)" type="Sprite" parent="ParallaxBackground/objectslayer"]
+position = Vector2( 1038.02, 611.553 )
+scale = Vector2( 1.48821, 1.48821 )
+texture = ExtResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+autoplay = true
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 900, 0 )
+curve = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 226.807, 77.0731 )
+rotation = 0.0099338
+rotate = false
+loop = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Zombie" parent="Path2D/PathFollow2D" instance=ExtResource( 2 )]
+
+[node name="Spawn" type="Position2D" parent="."]
+position = Vector2( -651.585, -441.488 )
+
+[node name="Path2D2" type="Path2D" parent="."]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D2"]
+position = Vector2( 2216.96, -170.515 )
+rotation = -6.28319
+offset = 290.296
+rotate = false
+cubic_interp = false
+loop = false
+
+[node name="Zombie" parent="Path2D2/PathFollow2D" instance=ExtResource( 2 )]
+
+[node name="Path2D3" type="Path2D" parent="."]
+position = Vector2( 1203.1, -131.104 )
+curve = SubResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D3"]
+position = Vector2( 2216.96, -170.515 )
+offset = 290.297
+rotate = false
+cubic_interp = false
+loop = false
+
+[node name="Zombie" parent="Path2D3/PathFollow2D" instance=ExtResource( 2 )]
+totalDropCoin = 4
+
+[node name="Path2D4" type="Path2D" parent="."]
+position = Vector2( 3745.59, -356.168 )
+curve = SubResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D4"]
+position = Vector2( 614.448, 76.6972 )
+rotate = false
+loop = false
+
+[node name="Bee" parent="Path2D4/PathFollow2D" instance=ExtResource( 15 )]

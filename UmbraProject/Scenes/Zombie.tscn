@@ -1,0 +1,174 @@
+[gd_scene load_steps=61 format=2]
+
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (1).png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/zombie/female/Attack (6).png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/zombie/female/Attack (4).png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (12).png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/zombie/female/Walk (3).png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/zombie/female/Walk (5).png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (4).png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (8).png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/zombie/female/Attack (3).png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (6).png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (15).png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/zombie/female/Walk (1).png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (1).png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/zombie/female/Attack (2).png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/zombie/female/Attack (7).png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (7).png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (2).png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/zombie/female/Attack (5).png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (11).png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (3).png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/zombie/female/Walk (2).png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/zombie/female/Walk (7).png" type="Texture" id=23]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (12).png" type="Texture" id=24]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (3).png" type="Texture" id=25]
+[ext_resource path="res://Assets/Sprites/zombie/female/Walk (8).png" type="Texture" id=26]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (8).png" type="Texture" id=27]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (5).png" type="Texture" id=28]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (2).png" type="Texture" id=29]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (13).png" type="Texture" id=30]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (10).png" type="Texture" id=31]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (11).png" type="Texture" id=32]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (14).png" type="Texture" id=33]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (9).png" type="Texture" id=34]
+[ext_resource path="res://Assets/Sprites/zombie/female/Walk (10).png" type="Texture" id=35]
+[ext_resource path="res://Assets/Sprites/zombie/female/Walk (6).png" type="Texture" id=36]
+[ext_resource path="res://Assets/Sprites/zombie/female/Attack (1).png" type="Texture" id=37]
+[ext_resource path="res://Assets/Sprites/zombie/female/Walk (9).png" type="Texture" id=38]
+[ext_resource path="res://Assets/Sprites/zombie/female/Idle (10).png" type="Texture" id=39]
+[ext_resource path="res://Assets/Sprites/zombie/female/Walk (4).png" type="Texture" id=40]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (6).png" type="Texture" id=41]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (5).png" type="Texture" id=42]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (9).png" type="Texture" id=43]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (4).png" type="Texture" id=44]
+[ext_resource path="res://Assets/Sprites/zombie/female/Dead (7).png" type="Texture" id=45]
+[ext_resource path="res://Assets/songs/zombie-20.wav" type="AudioStream" id=46]
+[ext_resource path="res://Assets/songs/zombie-14.wav" type="AudioStream" id=47]
+[ext_resource path="res://Assets/songs/zombie-16.wav" type="AudioStream" id=48]
+[ext_resource path="res://Assets/songs/zombie-17.wav" type="AudioStream" id=49]
+[ext_resource path="res://Assets/songs/zombie-18.wav" type="AudioStream" id=50]
+[ext_resource path="res://Assets/Sprites/fire set/4.png" type="Texture" id=51]
+[ext_resource path="res://Assets/Sprites/fire set/3.png" type="Texture" id=52]
+[ext_resource path="res://Assets/Sprites/fire set/1.png" type="Texture" id=53]
+[ext_resource path="res://Assets/Sprites/fire set/2.png" type="Texture" id=54]
+[ext_resource path="res://Assets/songs/Fire2.wav" type="AudioStream" id=55]
+[ext_resource path="res://Assets/Sprites/fire set/5.png" type="Texture" id=56]
+
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 34.2532
+height = 12.8889
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 53 ), ExtResource( 54 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 56 ) ],
+"loop": true,
+"name": "burning",
+"speed": 7.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 18 ), ExtResource( 25 ), ExtResource( 8 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 17 ), ExtResource( 9 ), ExtResource( 34 ), ExtResource( 39 ), ExtResource( 32 ), ExtResource( 5 ), ExtResource( 30 ), ExtResource( 33 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 44 ), ExtResource( 42 ), ExtResource( 41 ), ExtResource( 45 ), ExtResource( 27 ), ExtResource( 43 ), ExtResource( 31 ), ExtResource( 20 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "dead",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 22 ), ExtResource( 6 ), ExtResource( 40 ), ExtResource( 7 ), ExtResource( 36 ), ExtResource( 23 ), ExtResource( 26 ), ExtResource( 38 ), ExtResource( 35 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 37 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 19 ), ExtResource( 3 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "attack",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 41.2166, 34.0101 )
+
+[node name="Zombie" type="KinematicBody2D" groups=[
+"zombie",
+]]
+script = ExtResource( 1 )
+life = 3
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( -0.296753, 0 )
+scale = Vector2( 20, 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.05261, 1 )
+shape = SubResource( 1 )
+
+[node name="IsBurning" type="AnimatedSprite" parent="."]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.682353 )
+position = Vector2( -6, -14 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 2
+frames = SubResource( 2 )
+animation = "burning"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -6, -14 )
+scale = Vector2( 0.2, 0.2 )
+frames = SubResource( 3 )
+animation = "idle"
+
+[node name="Damage" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage"]
+position = Vector2( 0, 7 )
+shape = SubResource( 4 )
+
+[node name="Idle_sounds" type="Node2D" parent="."]
+
+[node name="idle_song1" type="AudioStreamPlayer2D" parent="Idle_sounds"]
+stream = ExtResource( 48 )
+volume_db = -7.0
+max_distance = 500.0
+bus = "zombie_songs"
+
+[node name="idle_song2" type="AudioStreamPlayer2D" parent="Idle_sounds"]
+stream = ExtResource( 49 )
+volume_db = -7.0
+pitch_scale = 0.9
+max_distance = 500.0
+bus = "zombie_songs"
+
+[node name="idle_song3" type="AudioStreamPlayer2D" parent="Idle_sounds"]
+stream = ExtResource( 50 )
+volume_db = -7.0
+max_distance = 500.0
+bus = "zombie_songs"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="SoundsEffects" type="Node2D" parent="."]
+
+[node name="dead_song" type="AudioStreamPlayer" parent="SoundsEffects"]
+stream = ExtResource( 46 )
+pitch_scale = 0.7
+bus = "zombie_songs"
+
+[node name="atk_sound" type="AudioStreamPlayer" parent="SoundsEffects"]
+stream = ExtResource( 47 )
+volume_db = -15.0
+pitch_scale = 0.8
+bus = "zombie_songs"
+
+[node name="burning_sound" type="AudioStreamPlayer2D" parent="SoundsEffects"]
+stream = ExtResource( 55 )
+volume_db = 5.0
+max_distance = 600.0

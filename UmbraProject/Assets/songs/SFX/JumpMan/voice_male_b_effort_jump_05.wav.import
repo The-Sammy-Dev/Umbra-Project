@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/voice_male_b_effort_jump_05.wav-7c930e020266ca73c0e11ab7839f3941.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/JumpMan/voice_male_b_effort_jump_05.wav"
+dest_files=[ "res://.import/voice_male_b_effort_jump_05.wav-7c930e020266ca73c0e11ab7839f3941.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Dash Heavy Armor 1_05.wav-a6fd6a49af11d4baef5997f42a84ffbb.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Swings and Whoosh/Dash Heavy Armor 1_05.wav"
+dest_files=[ "res://.import/Dash Heavy Armor 1_05.wav-a6fd6a49af11d4baef5997f42a84ffbb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

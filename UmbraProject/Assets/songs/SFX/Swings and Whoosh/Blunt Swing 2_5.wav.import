@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Blunt Swing 2_5.wav-cbdb5f4186c506291ab00b299d83a1ff.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Swings and Whoosh/Blunt Swing 2_5.wav"
+dest_files=[ "res://.import/Blunt Swing 2_5.wav-cbdb5f4186c506291ab00b299d83a1ff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

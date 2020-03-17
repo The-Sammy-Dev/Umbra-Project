@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Arrow Hit Wood 1_1.wav-f955f0829e4f5a9c782f140db6744749.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Weapons/Arrow Hit Wood 1_1.wav"
+dest_files=[ "res://.import/Arrow Hit Wood 1_1.wav-f955f0829e4f5a9c782f140db6744749.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

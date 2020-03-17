@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Blunt Weapon 2_1.wav-12517bf2518cae348be4f507a1a5fb11.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/Weapons/Blunt Weapon 2_1.wav"
+dest_files=[ "res://.import/Blunt Weapon 2_1.wav-12517bf2518cae348be4f507a1a5fb11.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

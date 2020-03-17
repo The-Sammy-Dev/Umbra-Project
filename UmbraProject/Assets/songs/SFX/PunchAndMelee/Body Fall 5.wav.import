@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Body Fall 5.wav-e80823caddadea512c12e9fc9f32b257.sample"
+
+[deps]
+
+source_file="res://Assets/songs/SFX/PunchAndMelee/Body Fall 5.wav"
+dest_files=[ "res://.import/Body Fall 5.wav-e80823caddadea512c12e9fc9f32b257.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

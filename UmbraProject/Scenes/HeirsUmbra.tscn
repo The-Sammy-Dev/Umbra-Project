@@ -1,0 +1,176 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Scripts/player_scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/hero/hero-attack/hero-attack-4.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/hero/hero-run/hero-run-1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/hero/hero-crouch/crouch-attack.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/hero/hero-crouch/hero-crouch.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/hero/hero-attack/hero-attack-3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/hero/hero-attack/hero-attack-1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/hero/hero-attack/hero-attack-2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/hero/hero-jump/hero-jump-1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/hero/hero-idle/hero-idle-2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/hero/hero-jump/hero-jump-3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/hero/hero-idle/hero-idle-1.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/hero/hero-jump/hero-jump-2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/hero/hero-idle/hero-idle-3.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/hero/hero-attack/hero-attack-5.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Sprites/hero/hero-idle/hero-idle-4.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Sprites/hero/hero-jump/hero-jump-4.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Sprites/hero/hero-run/hero-run-2.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Sprites/hero/hero-run/hero-run-3.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Sprites/hero/hero-run/hero-run-5.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Sprites/hero/hero-run/hero-run-6.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Sprites/hero/hero-run/hero-run-4.png" type="Texture" id=22]
+[ext_resource path="res://Scripts/player_scripts/Damaged_Area.gd" type="Script" id=42]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 20.3459
+height = 37.1204
+
+[sub_resource type="Animation" id=2]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 15 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "crouch"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ), ExtResource( 5 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "crouch_attack"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 5 ), ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 16 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 9 ), ExtResource( 13 ), ExtResource( 11 ), ExtResource( 17 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 21 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 19, 40 )
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 1 )
+run_default_max_vel = null
+default_max_velocity = null
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 4.76837e-07, 0 )
+offset = Vector2( 250, -125 )
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+drag_margin_right = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 5.07297, 17.5064 )
+shape = SubResource( 1 )
+
+[node name="AttackPos" type="Position2D" parent="."]
+position = Vector2( 60, 2 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 2 )
+anims/crouch = SubResource( 3 )
+anims/crouch_attack = SubResource( 4 )
+anims/idle = SubResource( 5 )
+anims/jump = SubResource( 6 )
+anims/run = SubResource( 7 )
+anims/strongcrouch = SubResource( 8 )
+
+[node name="Player_Damaged_Area" type="Area2D" parent="."]
+script = ExtResource( 42 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Damaged_Area"]
+position = Vector2( 4.561, 14.533 )
+shape = SubResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 7, -2 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+
+[node name="DoubleTap" type="Timer" parent="."]
