@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/HeirsUmbra.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/HeirsUmbra.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 676.252, 10 )
+extents = Vector2( 1631.81, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 48.8937, 54.9107 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 18.847, 272.268 )
 
 [node name="HookTest" type="Node2D"]
 
@@ -34,3 +37,21 @@ shape = SubResource( 2 )
 [node name="HeirsUmbra" parent="." instance=ExtResource( 2 )]
 position = Vector2( 272.658, 589.786 )
 script = ExtResource( 1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 2233.33, 417.851 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( -996.244, 417.851 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 3 )

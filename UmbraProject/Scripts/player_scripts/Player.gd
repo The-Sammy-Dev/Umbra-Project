@@ -14,12 +14,17 @@ onready var sprite: Sprite = $Sprite
 # Aqui eu dou um preload na cena do atk , gosto de instancia-lá ela contem um timer de .5 que da queuefree
 # Ai o inimigo que foi atingido que processa o dano e algum som que for tocar
 onready var PRE_ATTACK: = preload("res://Scenes/AttackArea.tscn")
-
+# Essas actions tem que ficar setadas já para não dar null e não atrapalhar a movimentação
+var right_input = float(Input.is_action_pressed("input_right"))
+var left_input = float(Input.is_action_pressed("input_left"))
 # Todas As actions fica na func Input
-
 var strong_attack
 var medium_attack
 var dodge_input
+var _released_input_right
+var _released_input_left
+var _just_input_left
+var _just_input_right
 var _crouch 
 var jump_input 
 var jump_pressed 
@@ -50,13 +55,7 @@ var _can_move = true
 var _can_run = true
 var _attacking = false
 var _tap = 0
-var right_input = float(Input.is_action_pressed("input_right"))
-var left_input = float(Input.is_action_pressed("input_left"))
-var _released_input_right
-var _released_input_left
 var _dash_run = -1
-var _just_input_left
-var _just_input_right
 
 func _ready() -> void:
 	randomize()
@@ -65,17 +64,14 @@ func _ready() -> void:
 	max_current_velocity = default_max_velocity
 	double_tap_timer.connect("timeout", self, "_on_DoubleTap_timeout")
 	
-
 func _input(event: InputEvent) -> void:
 	medium_attack = Input.is_action_pressed("medium_attack")
-#	medium_attack = int(Input.is_action_pressed("medium_attack"))
 	strong_attack = int(Input.is_action_pressed("strong_attack"))
 	
 	_released_input_left = int(Input.is_action_just_released("input_left"))
 	_released_input_right = int(Input.is_action_just_released("input_right"))
 	_just_input_left = int(Input.is_action_just_pressed("input_left"))
 	_just_input_right = int(Input.is_action_just_pressed("input_right"))
-	_tap_ammount(run_default_max_vel)
 	
 	if is_on_floor() :
 		_crouch = int(Input.is_action_pressed("input_crouch"))
@@ -83,8 +79,11 @@ func _input(event: InputEvent) -> void:
 	jump_input = int(Input.is_action_pressed("input_jump"))
 	jump_pressed = int(Input.is_action_just_pressed("input_jump"))
 	jump_released = int(Input.is_action_just_released("input_jump"))
+	
 func _unhandled_input(event: InputEvent) -> void:
-	_tap_ammount(max_current_velocity)
+	_tap_ammount()
+
+		 
 func _on_area_impulse(): # Pretendo usar isso em um futuro proximo para quando o player for hitado
 	current_velocity.y = jump_velocity
 
@@ -235,13 +234,12 @@ func h_movement(delta) -> void :
 		anim.animation_get_next("attack")
 		return
 		
-	if _tap == 2:
-		if last_input_direction.x == 1:
-			max_current_velocity = 20000
-		if last_input_direction.x == -1 :
-			max_current_velocity = -20000
-	if _tap != 2:
-		max_current_velocity = 300
+	if running:
+		if _just_input_left or _just_input_right:
+			 max_current_velocity = max_current_velocity + 500
+	if !running:
+		max_current_velocity = 500
+#		max_current_velocity = 500
 		
 	if right_input or left_input:
 		
@@ -292,18 +290,14 @@ func begin(current_val, target_val, variation) -> float :
 	return target_val
 	
 func _on_DoubleTap_timeout():
-	if _tap == 1:
-		_tap = 0
-		print("== 1")
-	if _tap == 2:
-		_tap = 2
-		
+	_tap = 0
 	
-func _tap_ammount(run_velocity: float)
-	if _tap == 1 and input_direction.x != 0:
-		_tap == 2
-		print("+")
-	if input_direction.x != 0 :
-		_tap = 1
+func _tap_ammount():
+	if _just_input_right or _just_input_left:
+		_tap += 1
 		double_tap_timer.start()
-		return
+		if _tap == 2:
+			_tap == 2
+			running = true
+		else:
+			running = false
