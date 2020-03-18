@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Scripts/player_scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/hero/hero-attack/hero-attack-4.png" type="Texture" id=2]
@@ -22,11 +22,12 @@
 [ext_resource path="res://Assets/Sprites/hero/hero-run/hero-run-5.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Sprites/hero/hero-run/hero-run-6.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Sprites/hero/hero-run/hero-run-4.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Sprites/hero/smokeWhite1.png" type="Texture" id=23]
+[ext_resource path="res://Assets/LightTexture.png" type="Texture" id=24]
 [ext_resource path="res://Scripts/player_scripts/Damaged_Area.gd" type="Script" id=42]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 20.3459
-height = 37.1204
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 19.0855, 24.2997 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "attack"
@@ -94,7 +95,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=6]
-length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
@@ -129,25 +129,59 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 19, 40 )
 
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0.0285714, 0.914286 )
+colors = PoolColorArray( 0.980469, 0.980469, 0.980469, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=11]
+gradient = SubResource( 10 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.967045 ), -0.697325, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+render_priority = 1
+trail_size_modifier = SubResource( 13 )
+trail_color_modifier = SubResource( 11 )
+emission_shape = 3
+emission_point_count = 1
+flag_disable_z = true
+direction = Vector3( -1, -1, 0 )
+flatness = 0.06
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.22
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.2
+
+[sub_resource type="Animation" id=16]
+resource_name = "down_camera"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -150 ), Vector2( 0, -2.1 ) ]
+}
+
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
 script = ExtResource( 1 )
-run_default_max_vel = null
-default_max_velocity = null
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 4.76837e-07, 0 )
-offset = Vector2( 250, -125 )
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = true
-drag_margin_right = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 5.07297, 17.5064 )
-shape = SubResource( 1 )
+position = Vector2( 5.07297, 32.6898 )
+shape = SubResource( 15 )
 
 [node name="AttackPos" type="Position2D" parent="."]
 position = Vector2( 60, 2 )
@@ -162,6 +196,7 @@ anims/run = SubResource( 7 )
 anims/strongcrouch = SubResource( 8 )
 
 [node name="Player_Damaged_Area" type="Area2D" parent="."]
+visible = false
 script = ExtResource( 42 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Damaged_Area"]
@@ -171,6 +206,33 @@ shape = SubResource( 9 )
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 7, -2 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
+flip_h = true
 
 [node name="DoubleTap" type="Timer" parent="."]
+
+[node name="RunEffect" type="Particles2D" parent="."]
+visible = false
+position = Vector2( 51.3136, 51.0547 )
+amount = 2
+process_material = SubResource( 14 )
+texture = ExtResource( 23 )
+
+[node name="RayHook" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 150, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -150 )
+current = true
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 24 )
+color = Color( 0.866667, 0.92549, 0.933333, 1 )
+energy = 0.9
+range_z_min = -1500
+range_z_max = 1500
+shadow_enabled = true
+
+[node name="CameraAnim" type="AnimationPlayer" parent="."]
+anims/down_camera = SubResource( 16 )

@@ -1,41 +1,27 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/HeirsUmbra.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/HeirsUmbra.tscn" type="PackedScene" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1631.81, 10 )
+[ext_resource path="res://Tileset/Floor.tres" type="TileSet" id=3]
+[ext_resource path="res://Assets/Sprites/Environment/backgroundatt.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Environment/graveyardatt.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Environment/mountainsatt.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Environment/tileset-sliced.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 48.8937, 54.9107 )
-
-[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 18.847, 272.268 )
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 22.1634
+height = 49.4769
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 17.4962
 
 [node name="HookTest" type="Node2D"]
 
-[node name="chao" type="StaticBody2D" parent="."]
-position = Vector2( 621.975, 680.682 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="chao"]
-position = Vector2( 1.21381, -1.27124 )
-shape = SubResource( 1 )
-
-[node name="Test" type="StaticBody2D" parent="."]
-position = Vector2( 444.82, 284.15 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Test"]
-position = Vector2( -2.17429, -3.50592 )
-shape = SubResource( 2 )
-
 [node name="HeirsUmbra" parent="." instance=ExtResource( 2 )]
-position = Vector2( 272.658, 589.786 )
+position = Vector2( 171.129, 566.957 )
 script = ExtResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -45,7 +31,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( -996.244, 417.851 )
@@ -54,4 +40,101 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 64, 40 )
+format = 1
+tile_data = PoolIntArray( 1114095, 0, 0, 1114096, 0, 0, 1114097, 0, 0, 1114098, 0, 0, 1114099, 0, 0, 1114100, 0, 0, 1114101, 0, 0, 1114102, 0, 0, 1114103, 0, 0, 1114104, 0, 0, 1114105, 0, 0, 1114106, 0, 0, 1114107, 0, 0, 1114108, 0, 0, 1114109, 0, 0, 1114110, 0, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0, 1048597, 0, 0, 1048598, 0, 0, 1048599, 0, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 0, 0, 1048603, 0, 0, 1048604, 0, 0, 1048605, 0, 0, 1048606, 0, 0, 1048607, 0, 0, 1048608, 0, 0, 1048609, 0, 0, 1048610, 0, 0, 1048611, 0, 0, 1048612, 0, 0 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Layer1" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_scale = Vector2( 0.01, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="backgroundatt" type="Sprite" parent="ParallaxBackground/Layer1"]
+position = Vector2( 644.46, 372.447 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Layer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 1 )
+motion_mirroring = Vector2( 1492, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="mountainsatt" type="Sprite" parent="ParallaxBackground/Layer2"]
+position = Vector2( 592.267, 526.903 )
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Layer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.4, 1 )
+motion_mirroring = Vector2( 1278, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="graveyardatt" type="Sprite" parent="ParallaxBackground/Layer3"]
+position = Vector2( 666.862, 519.36 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Test" type="StaticBody2D" parent="Objects"]
+position = Vector2( 473.672, 529.968 )
+z_index = -1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="tileset-sliced" type="Sprite" parent="Objects/Test"]
+position = Vector2( 7.02478, 16.4809 )
+scale = Vector2( 2.07548, 3.29422 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 222.607, 47.0486, 34.4979, 65.439 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Objects/Test"]
+polygon = PoolVector2Array( -25.1272, -87.7517, 40.0327, -88.3665, 30.1972, -66.2367, 26.2016, -39.8039, 25.2795, 116.641, -11.9108, 117.256, -11.2961, -39.1892, -16.5212, -65.6219, -22.9757, -74.8427 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Objects"]
+z_index = -1
+
+[node name="tileset-sliced" type="Sprite" parent="Objects/StaticBody2D"]
+position = Vector2( 417.527, 630.896 )
+rotation = 1.03232
+scale = Vector2( 2.24402, 2.5949 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 260.977, 63.2269, 22.8976, 33.286 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/StaticBody2D"]
+position = Vector2( 417.208, 629.617 )
+rotation = 1.10828
 shape = SubResource( 3 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Objects"]
+position = Vector2( 479.521, 227.662 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/StaticBody2D2"]
+shape = SubResource( 4 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Objects/StaticBody2D2"]
+polygon = PoolVector2Array( 0.00895119, -17.6263, 4.54973, -16.7998, 8.63203, -15.1251, 12.4003, -12.2988, 15.5405, -8.11187, 16.9013, -4.13425, 17.5294, 0.576097, 16.7966, 4.6584, 15.3312, 8.322, 12.4003, 12.1949, 8.63203, 15.1258, 2.03755, 17.324, -3.61486, 17.2193, -8.84858, 14.8118, -12.8614, 11.9557, -15.1634, 8.71594, -16.6128, 4.79407, -17.4319, -2.14544, -15.0244, -9.05394, -11.4654, -13.2409, -7.1996, -15.8444, -3.71682, -17.3023 )

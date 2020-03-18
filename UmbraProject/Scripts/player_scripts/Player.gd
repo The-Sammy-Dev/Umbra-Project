@@ -1,23 +1,31 @@
 extends KinematicBody2D
-#class_name KinematicMoviment
+class_name KinematicMoviment # vou passar a mecanica do hook shot pro script do irmão e na irmã terá a mecanica do dash
 # pause is 7
 signal game_pause
 
 const UP: = Vector2(0, -1)
 
+onready var _collision_shape: CollisionShape2D = $CollisionShape2D
+onready var _ray_hook: RayCast2D = $RayHook
+onready var _smoke: Particles2D = $RunEffect
 onready var double_tap_timer: Timer = $DoubleTap
 onready var damage_shape: CollisionShape2D = $Player_Damaged_Area/CollisionShape2D
 onready var collision_shape: CollisionShape2D = $CollisionShape2D 
 onready var attack_pos: Position2D = $AttackPos
 onready var anim: = $Anim
 onready var sprite: Sprite = $Sprite
-# Aqui eu dou um preload na cena do atk , gosto de instancia-lá ela contem um timer de .5 que da queuefree
+onready var anim_camera: AnimationPlayer = $CameraAnim
+# Aqui eu dou um preload na cena do atk , gosto de instancia-lá e dou um queuefree em seguida
 # Ai o inimigo que foi atingido que processa o dano e algum som que for tocar
 onready var PRE_ATTACK: = preload("res://Scenes/AttackArea.tscn")
+
 # Essas actions tem que ficar setadas já para não dar null e não atrapalhar a movimentação
 var right_input = float(Input.is_action_pressed("input_right"))
 var left_input = float(Input.is_action_pressed("input_left"))
 # Todas As actions fica na func Input
+var _special_input
+var _just_special_input
+var _release_special_input
 var strong_attack
 var medium_attack
 var dodge_input
@@ -25,6 +33,7 @@ var _released_input_right
 var _released_input_left
 var _just_input_left
 var _just_input_right
+var _just_input_down
 var _crouch 
 var jump_input 
 var jump_pressed 
@@ -35,8 +44,8 @@ var jump_attacking = false # Verificação Se Está Atacando No Ar
 # Movement.x and jump
 signal input_changed # Esse sinal ainda não sei se pode ser util mas deixo ele aqui caso seja
 
-export var run_default_max_vel: = 520 # Limite De Velocidade Max Quando corre
-export var default_max_velocity: = 300 # Limite de velocidade quando anda
+export var run_default_max_vel: = 650 # Limite De Velocidade Max Quando corre
+export var default_max_velocity: = 450 # Limite de velocidade quando anda
 var acceleration: = 2000
 var slowdown: = 1800
 var gravity_acceleration: = 4000
@@ -65,6 +74,9 @@ func _ready() -> void:
 	double_tap_timer.connect("timeout", self, "_on_DoubleTap_timeout")
 	
 func _input(event: InputEvent) -> void:
+	_special_input = int(Input.is_action_pressed("input_special"))
+	_just_special_input = int(Input.is_action_just_pressed("input_special"))
+	_release_special_input = int(Input.is_action_just_released("input_special"))
 	medium_attack = Input.is_action_pressed("medium_attack")
 	strong_attack = int(Input.is_action_pressed("strong_attack"))
 	
@@ -72,6 +84,7 @@ func _input(event: InputEvent) -> void:
 	_released_input_right = int(Input.is_action_just_released("input_right"))
 	_just_input_left = int(Input.is_action_just_pressed("input_left"))
 	_just_input_right = int(Input.is_action_just_pressed("input_right"))
+	_just_input_down = int(Input.is_action_just_pressed("input_crouch"))
 	
 	if is_on_floor() :
 		_crouch = int(Input.is_action_pressed("input_crouch"))
@@ -82,12 +95,13 @@ func _input(event: InputEvent) -> void:
 	
 func _unhandled_input(event: InputEvent) -> void:
 	_tap_ammount()
-
 		 
 func _on_area_impulse(): # Pretendo usar isso em um futuro proximo para quando o player for hitado
 	current_velocity.y = jump_velocity
 
-func _process(delta: float) -> void:
+func _process(delta: float) -> void: # Coloquei a move da camera aqui, não sei se foi o melhor
+	_camera_position() 
+	
 	if !touchable:
 		$Player_Damaged_Area.monitorable = false
 		$Player_Damaged_Area.monitoring = false
@@ -103,12 +117,13 @@ func _process(delta: float) -> void:
 		emit_signal("input_changed")
 	
 func _physics_process(delta: float) -> void:
+	_hook_shot()
 	attacking()
 	right_input = float(Input.is_action_pressed("input_right"))
 	left_input = float(Input.is_action_pressed("input_left"))
 	
 	input_direction.x = right_input - left_input 
-				
+	
 	h_movement(delta)
 	v_movement(delta)
 	move_and_slide(current_velocity, UP)
@@ -125,7 +140,7 @@ func attacking() -> void :
 				yield(anim,"animation_finished")
 				_attacking = false
 				can_attack = true
-			if strong_attack and can_attack:
+			if strong_attack and can_attack: # Esse Ataque eu estava fazendo mas não consigo fazer sem uma animação pra me orientar 
 #				_attacking = true
 				_attack_changed(Vector2(60, 2), Vector2(20, 50), .5)
 				
@@ -161,7 +176,7 @@ func _attack_changed(position_vector: Vector2,vector_pos: Vector2, duration:floa
 	yield(get_tree().create_timer(duration), "timeout")
 	attack_area.queue_free()
 	
-func v_movement(delta) -> void :
+func v_movement(delta) -> void :# Aqui tbm tem o input pra agachar
 	var smooth_factor = 0.5
 	if jump_input:
 		jumping = true
@@ -171,15 +186,16 @@ func v_movement(delta) -> void :
 		if _crouch :
 			if !_attacking:
 				anim.play("crouch")
-			
 				current_velocity.x = 0
 				damage_shape.shape.extents = Vector2(19, 25)
 				damage_shape.position.y = 33.533
+				_collision_shape.shape.extents = Vector2(19.086, 24.3)
+				_collision_shape.position.y = 32.69
 		else:
 			damage_shape.shape.extents = Vector2(19, 40)
 			damage_shape.position.y = 14.533
-
-	
+			_collision_shape.shape.extents = Vector2(19.086, 38.87)
+			_collision_shape.position.y = 17.506
 	if not medium_attack :
 		if is_on_floor() :
 			current_velocity.y = 0
@@ -229,19 +245,26 @@ func h_movement(delta) -> void :
 	else: 
 		$Player_Damaged_Area/CollisionShape2D.position.x = -4.561
 		$CollisionShape2D.position.x = -5.000
-	
-	if medium_attack and is_on_floor():
-		anim.animation_get_next("attack")
-		return
 		
-	if running:
-		if _just_input_left or _just_input_right:
-			 max_current_velocity = max_current_velocity + 500
+	if  running:
+			if input_direction :
+				last_input_direction = input_direction
+		
+				if target_velocity != run_default_max_vel:
+					target_velocity = run_default_max_vel
+			else:
+				target_velocity = 0
+
 	if !running:
-		max_current_velocity = 500
-#		max_current_velocity = 500
+		if input_direction :
+				last_input_direction = input_direction
 		
-	if right_input or left_input:
+				if target_velocity != default_max_velocity:
+					target_velocity = default_max_velocity
+		else:
+			target_velocity = 0
+	
+	if right_input or left_input: 
 		
 		if input_direction.x == 0 and not medium_attack and is_on_floor() :
 			anim.play("idle")
@@ -251,14 +274,6 @@ func h_movement(delta) -> void :
 		
 		sprite.flip_h = flip_last_input
 		
-		if input_direction :
-			last_input_direction = input_direction
-	
-			if target_velocity != max_current_velocity:
-				target_velocity = max_current_velocity
-		else:
-			target_velocity = 0
-	
 		var variation = slowdown * delta
 	
 		if input_direction:
@@ -271,14 +286,32 @@ func h_movement(delta) -> void :
 					 variation )
 					)
 		sprite.flip_h = flip_last_input
-		
-	else:
-		if input_direction.x == 0 and not medium_attack and is_on_floor() :
+		if sprite.flip_h :
+			_smoke.process_material.direction.x = 1
+			_smoke.position.x = 51.314
+		else:
+			_smoke.process_material.direction.x = -1
+			_smoke.position.x = -31.249
+	if input_direction.x == 0 and not medium_attack and is_on_floor() :
 			anim.play("idle")
 			current_velocity.x = 0
-#		current_velocity.x = 0
-	
-func begin(current_val, target_val, variation) -> float :
+
+func _hook_shot():# Cara isso aqui, ta quase lá, muito quase
+	var axis_value1 = Input.get_joy_axis(0, JOY_AXIS_0)
+	var axis_value2 = Input.get_joy_axis(0, JOY_AXIS_1)
+	var _dir = Vector2(stepify(axis_value1,.1), stepify(axis_value2,.1)).normalized()
+	if _special_input:
+		_attacking = true
+		_ray_hook.rotation = _dir.angle()
+		if !_ray_hook.is_colliding():
+			_ray_hook.cast_to.x += 10
+		else:
+			
+			_ray_hook.cast_to.x = _ray_hook.get_collision_point().x 
+	if _release_special_input:
+		_attacking = false
+		
+func begin(current_val, target_val, variation) -> float : # Aqui é pra fazer uma variação quando solta o botão da direção e ficar mais real
 	var difference = target_val - current_val
 	
 	if difference > variation :
@@ -289,10 +322,10 @@ func begin(current_val, target_val, variation) -> float :
 	
 	return target_val
 	
-func _on_DoubleTap_timeout():
+func _on_DoubleTap_timeout(): # Pra resetar o _tap
 	_tap = 0
 	
-func _tap_ammount():
+func _tap_ammount(): # Aqui é para o double tap da corrida
 	if _just_input_right or _just_input_left:
 		_tap += 1
 		double_tap_timer.start()
@@ -301,3 +334,17 @@ func _tap_ammount():
 			running = true
 		else:
 			running = false
+
+func _camera_position(): # Foi mt mais fácil do que eu esperava, foi só fazer uma animação dela ,mas criei outro node pq dava conflito
+	if _just_input_down:
+		yield(get_tree().create_timer(1),"timeout")
+		anim_camera.play("down_camera")
+		yield(anim_camera, "animation_finished")
+		anim_camera.pause_mode = true
+		
+	if Input.is_action_just_released("input_crouch"):
+		anim_camera.play_backwards("down_camera")
+		
+		
+		
+	
