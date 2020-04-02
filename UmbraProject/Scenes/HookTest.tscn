@@ -8,14 +8,14 @@
 [ext_resource path="res://Assets/Sprites/Environment/mountainsatt.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Environment/tileset-sliced.png" type="Texture" id=7]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.847, 272.268 )
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 22.1634
 height = 49.4769
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=3]
 radius = 17.4962
 
 [node name="HookTest" type="Node2D"]
@@ -31,7 +31,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( -996.244, 417.851 )
@@ -40,7 +40,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 3 )
@@ -125,7 +125,7 @@ region_rect = Rect2( 260.977, 63.2269, 22.8976, 33.286 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/StaticBody2D"]
 position = Vector2( 417.208, 629.617 )
 rotation = 1.10828
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Objects"]
 position = Vector2( 479.521, 227.662 )
@@ -134,7 +134,9 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/StaticBody2D2"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Polygon2D" type="Polygon2D" parent="Objects/StaticBody2D2"]
 polygon = PoolVector2Array( 0.00895119, -17.6263, 4.54973, -16.7998, 8.63203, -15.1251, 12.4003, -12.2988, 15.5405, -8.11187, 16.9013, -4.13425, 17.5294, 0.576097, 16.7966, 4.6584, 15.3312, 8.322, 12.4003, 12.1949, 8.63203, 15.1258, 2.03755, 17.324, -3.61486, 17.2193, -8.84858, 14.8118, -12.8614, 11.9557, -15.1634, 8.71594, -16.6128, 4.79407, -17.4319, -2.14544, -15.0244, -9.05394, -11.4654, -13.2409, -7.1996, -15.8444, -3.71682, -17.3023 )
+
+[node name="Node2D" type="Node2D" parent="."]
