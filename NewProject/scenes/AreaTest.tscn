@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://HeirsUmbra.gd" type="Script" id=1]
+[ext_resource path="res://addons/Hook/hook.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.7288, 43.0739 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 527.628, 24.2403 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 50.2632
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 396.487 )
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 79.196
+
+[node name="AreaTest" type="Node2D"]
+
+[node name="HeirsUmbra" type="KinematicBody2D" parent="."]
+position = Vector2( 658.82, 407.136 )
+script = ExtResource( 1 )
+
+[node name="HookShot" type="Node2D" parent="HeirsUmbra"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeirsUmbra"]
+shape = SubResource( 1 )
+
+[node name="chao" type="StaticBody2D" parent="."]
+position = Vector2( 506.32, 585.428 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chao"]
+shape = SubResource( 2 )
+
+[node name="Tronco" type="StaticBody2D" parent="."]
+position = Vector2( 660.759, 123.289 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tronco"]
+shape = SubResource( 3 )
+
+[node name="wall" type="StaticBody2D" parent="."]
+position = Vector2( 1024.83, 178.897 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+shape = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="wall"]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+
+[node name="KinematicBody2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 658.708, 259.187 )
+shape = SubResource( 5 )
